@@ -1,10 +1,14 @@
 import * as React from 'react';
 import Balloon from './Balloon';
 
-const yourMessage: React.StatelessComponent = () => {
+interface IYourMessageProps {
+  message: string;
+}
+
+const yourMessage: React.StatelessComponent<IYourMessageProps> = props => {
   return (
     <div>
-      <Balloon />
+      <Balloon fromLeft={false} message={props.message} />
     </div>
   );
 };
