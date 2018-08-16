@@ -1,0 +1,48 @@
+:root {
+  --your-message-color: #a2ff00;
+}
+
+.balloon {
+  border-radius: 1rem;
+  position: relative;
+}
+
+/* TODO: 吹き出しの跳ね再現、2つ丸描くとかで */
+.balloon::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 0.6rem solid transparent;
+  border-bottom: 0.2rem solid transparent;
+  bottom: 0.4rem;
+}
+
+.balloon--yours {
+  margin-right: 0.6rem;
+  color: #fff;
+  background-color: var(--your-message-color);
+}
+
+.balloon--yours::before {
+  right: -0.6rem;
+  border-left: 0.8rem solid var(--your-message-color);
+}
+
+.balloon--hers {
+  margin-left: 0.6rem;
+  color: #000;
+  background-color: #fff;
+}
+
+.balloon--hers::before {
+  left: -0.6rem;
+  border-right: 0.8rem solid #fff;
+}
+
+.balloon__message {
+  margin: 0;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
