@@ -5,16 +5,19 @@ import classNameProps from '../class-name-props';
 interface IBalloonProps {
   // TODO: スタンプに対応したいけど、イラスト……
   message: string;
-  isYourMessage: boolean;
+  /**
+   * falseで右から生える
+   */
+  fromLeft: boolean;
 }
 
 const balloon: React.StatelessComponent<
   IBalloonProps & classNameProps
 > = props => {
-  const { message, isYourMessage, className } = props;
+  const { message, fromLeft, className } = props;
   const classes = `${className} ${styles.balloon} ${
     // FIXME: 文字列出しちゃったら型意味なくない？
-    isYourMessage ? styles['balloon--yours'] : styles['balloon--hers']
+    fromLeft ? styles['balloon--hers'] : styles['balloon--yours']
   }`;
   return (
     <div>
