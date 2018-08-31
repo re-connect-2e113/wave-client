@@ -180,6 +180,8 @@ module.exports = {
                   localIdentName: '[name]__[local]___[hash:base64:5]',
                   modules: true,
                   sourceMap: true,
+                  // JS側 camelCase <=> kebabCase CSS側 を解決 (camelCaseで取り扱えるように次へ渡してくれる)
+                  camelCase: true,
                 },
               },
               {

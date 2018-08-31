@@ -16,14 +16,12 @@ const balloon: React.StatelessComponent<
 > = props => {
   const { message, fromLeft, className } = props;
   const classes = `${className} ${styles.balloon} ${
-    // FIXME: 文字列出しちゃったら型意味なくない？
-    fromLeft ? styles['balloon--hers'] : styles['balloon--yours']
+    fromLeft ? styles.balloonHers : styles.balloonYours
   }`;
   return (
     <div>
       <div className={classes}>
-        {/* FIXME: 文字列出しちゃったら型意味なくない？ */}
-        <p className={styles['balloon__message']}>{message}</p>
+        <p className={styles.balloonMessage}>{message}</p>
       </div>
     </div>
   );
