@@ -15,3 +15,8 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
+
+// webpack HMR のサポート
+if (module.hot) {
+  module.hot.accept();
+}
