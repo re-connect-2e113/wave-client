@@ -21,7 +21,11 @@ const messageLog: React.StatelessComponent<IMessageLogProps> = props => {
       message.sender === BOT_SAN ? (
         <YourMessage message={message.text} key={index} />
       ) : (
-        <HerMessage message={message.text} key={index} />
+        <HerMessage
+          message={message.text}
+          senderName={message.sender}
+          key={index}
+        />
       )
   );
   return <div>{messageBalloons}</div>;
