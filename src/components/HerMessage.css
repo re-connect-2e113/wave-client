@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: flex-end;
+}
+
+.her-message__action-log {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  /* FIXME: 吹き出しの飛び出ているところ長さまとめて管理したほうがいい */
+  margin-left: 0.6rem;
+}
