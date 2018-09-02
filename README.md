@@ -32,13 +32,19 @@ yarn start
 ```
 
 
-設定ファイルなど
+### 設定など
 
-`.env.sample`  
+#### `.env.sample`  
 環境変数サンプルファイルです。
 
 基本的に`.env`と名前をかえてコピーしていただく形になります。
 
 ファイル名や変数名については以下のリンク
 
-- [環境変数周りの説明(create-react-app公式)](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
+[環境変数周りの説明(create-react-app公式)](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
+
+#### `src/assets/temp-icon.png`
+
+このパスでファイルを保存すると相手側のアイコンになります。  
+そう遠くないうちにお話する相手を選べるように対応します。  
+(近い内にちゃんとサーバーから名前とセットで取ってくる仕組みにします。)

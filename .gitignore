@@ -150,3 +150,8 @@ typings/
 
 # Generated .css.d.ts files
 typings/**/*.css.d.ts
+
+
+
+# メッセージの相手のアイコンファイルをコミットしない(近い内にここに置かなくても良くなります)
+src/assets/temp-icon.png
