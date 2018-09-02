@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.your-message__action-log {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
