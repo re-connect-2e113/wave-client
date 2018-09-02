@@ -1,0 +1,7 @@
+.her-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  /* TODO: オリジナルに近い形になっていないので近づける。4つの円だと表現できない? */
+  border-radius: 15px;
+}
