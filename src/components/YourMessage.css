@@ -1,3 +1,5 @@
+@import url('../variables.css');
+
 .root {
   display: flex;
   flex-direction: row-reverse;
@@ -7,4 +9,9 @@
   margin: 0;
   padding: 0;
   color: #fff;
+  text-align: right;
+  font-size: var(--wave-message-author-font-siize);
+  /* FIXME: 吹き出しの飛び出ているところ長さまとめて管理したほうがいい */
+  margin-right: 0.6rem;
+  margin-bottom: 2px;
 }
