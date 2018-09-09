@@ -7,6 +7,7 @@ import { ISendMessageAction } from './actions/mesages';
 import { connect } from 'react-redux';
 // tslint:disable-next-line:no-duplicate-imports
 import * as MessageActions from './actions/mesages';
+import * as styles from './Wave.css';
 
 interface IWaveProps {
   sendMessage: (text: string) => ISendMessageAction;
@@ -24,8 +25,12 @@ const wave: React.StatelessComponent<
   IWaveProps & { className?: string }
 > = props => {
   return (
-    <div>
-      <MessengerHeader />
+    <div className={styles.wave}>
+      {/* TODO: 連絡先一覧やPushメッセージから渡すようにする */}
+      <MessengerHeader
+        name={process.env.REACT_APP_PRECIOUS_NAME!}
+        isOnline={true}
+      />
       <MessageLog />
       <MessageInput sendMessage={props.sendMessage} />
     </div>
