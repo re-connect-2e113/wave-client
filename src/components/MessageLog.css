@@ -1,0 +1,17 @@
+.message-logs {
+  height: calc(100vh - 100px);
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.log__message {
+  margin-bottom: 10px;
+}
+
+.log__her-message {
+  margin-left: 12px;
+}
+
+.log__your-message {
+  margin-right: 12px;
+}
