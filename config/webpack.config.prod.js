@@ -200,6 +200,8 @@ module.exports = {
                         minimize: true,
                         modules: true,
                         sourceMap: shouldUseSourceMap,
+                        // JS側 camelCase <=> kebabCase CSS側 を解決 (camelCaseで取り扱えるように次へ渡してくれる)
+                        camelCase: true,
                       },
                     },
                     {

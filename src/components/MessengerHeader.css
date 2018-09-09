@@ -1,0 +1,61 @@
+@import url('../variables.css');
+
+.root {
+  color: #fff;
+  display: flex;
+  height: 50px;
+  background-color: var(--wave-background-color);
+}
+
+.header__home-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  color: #fff;
+  width: 44px;
+}
+
+.home-button__wave-icon {
+  color: white;
+  fill: currentColor;
+  width: 30px;
+  vertical-align: bottom;
+}
+
+.header__friend-info {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.header__status-display {
+  margin-top: 0.2rem;
+  display: flex;
+}
+
+.status-display__friend-name {
+  margin: 0;
+  font-size: 2rem;
+  font-family: var(--wave-header-font);
+}
+
+.status-display__description {
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  margin: 0;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+  font-family: var(--wave-header-font);
+}
+
+.header__status-icon--online {
+  font-size: 1rem;
+  color: #00ff00;
+}
+
+.header__status-icon--offline {
+  font-size: 1rem;
+  color: #f44336;
+}
