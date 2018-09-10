@@ -1,4 +1,5 @@
 :root {
   --wave-background-color: #323232;
   --wave-header-font: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+  --wave-message-author-font-size: 0.7rem;
 }

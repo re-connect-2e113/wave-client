@@ -9,10 +9,8 @@ interface IHerIconProps {
 const herIcon: React.StatelessComponent<
   IHerIconProps & classNameProps
 > = props => {
-  // TODO: propsで渡されたクラス名と持っているルートのクラス名を合成する処理まとめる
-  const classes = props.className ? `${props.className}` : '';
   return (
-    <div className={classes}>
+    <div>
       <img className={styles.herIcon} src={props.image} alt="icon" />
     </div>
   );
