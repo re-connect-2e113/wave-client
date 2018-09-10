@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as styles from './MessageInput.css';
 import classNameProps from '../class-name-props';
+import utils from '../utils';
 
 interface IMessageInputProps {
   sendMessage: (text: string) => ISendMessageAction;
@@ -26,9 +27,9 @@ export default class MessageInput extends React.Component<
     message: ''
   };
   public render() {
-    const classes = this.props.className
-      ? `${this.props.className} ${styles.root}`
-      : styles.root;
+    const classes = `${utils.toStringOrEmpty(this.props.className)} ${
+      styles.root
+    }`;
     return (
       <div className={classes}>
         <div className={styles.inputBoxWrapper}>

@@ -4,6 +4,7 @@ import classNameProps from '../class-name-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import WaveIcon from './WaveIcon';
+import utils from '../utils';
 
 interface IHeaderProps {
   isOnline: boolean;
@@ -14,8 +15,7 @@ const messengerHeader: React.StatelessComponent<
   IHeaderProps & classNameProps
 > = props => {
   const { isOnline, name, className } = props;
-  // TODO: propsで渡されたクラス名と持っているルートのクラス名を合成する処理まとめる
-  const classes = className ? `${className}` : styles.root;
+  const classes = `${utils.toStringOrEmpty(className)} ${styles.root}`;
   return (
     <div className={classes}>
       <button className={styles.headerHomeButton}>
