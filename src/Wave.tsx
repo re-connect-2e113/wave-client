@@ -7,6 +7,7 @@ import { ISendMessageAction } from './actions/mesages';
 import { connect } from 'react-redux';
 // tslint:disable-next-line:no-duplicate-imports
 import * as MessageActions from './actions/mesages';
+import { registerPush } from './services/subscribe-push';
 import * as styles from './Wave.css';
 
 interface IWaveProps {
@@ -26,6 +27,10 @@ const wave: React.StatelessComponent<
 > = props => {
   return (
     <div className={styles.wave}>
+    {/* TODO: ポップアップとかでPush通知していいかどうか聞くようにする。とりあえずトリガーだけ置いておく */}
+      <button onClick={registerPush} style={{ color: '#fff' }}>
+        登録
+      </button>
       {/* TODO: 連絡先一覧やPushメッセージから渡すようにする */}
       <MessengerHeader
         name={process.env.REACT_APP_PRECIOUS_NAME!}

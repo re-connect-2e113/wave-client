@@ -58,7 +58,12 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: {
+    polyfill: require.resolve('./polyfills'),
+    main: paths.appIndexJs,
+    // ServiceWorkerに埋め込むファイル(Push通知)をエントリーポイントに指定
+    push: path.join(paths.appSrc, 'sw-push.ts'),
+  },
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -336,6 +341,9 @@ module.exports = {
       // about it being stale, and the cache-busting can be skipped.
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
+      importScripts: [
+        { chunkName: 'push' },
+      ],
       logger(message) {
         if (message.indexOf('Total precache size is') === 0) {
           // This message occurs for every build and is a bit too noisy.
