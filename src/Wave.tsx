@@ -27,7 +27,7 @@ const wave: React.StatelessComponent<
 > = props => {
   return (
     <div className={styles.wave}>
-    {/* TODO: ポップアップとかでPush通知していいかどうか聞くようにする。とりあえずトリガーだけ置いておく */}
+      {/* TODO: ポップアップとかでPush通知していいかどうか聞くようにする。とりあえずトリガーだけ置いておく */}
       <button onClick={registerPush} style={{ color: '#fff' }}>
         登録
       </button>
