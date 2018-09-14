@@ -40,6 +40,8 @@ export default function subscribePush() {
     }
     return registration.pushManager
       .subscribe({
+        // 以下のようなエラーがfalseだと出る。つまり今はフォアグラウンドでも通知出しまくるしか無いのかな
+        // Chrome currently only supports the Push API for subscriptions that will result in user-visible messages
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(
           process.env.REACT_APP_VAPID_PUBLIC_KEY!
