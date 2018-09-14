@@ -9,15 +9,21 @@ import { connect } from 'react-redux';
 import * as MessageActions from './actions/mesages';
 import { registerPush } from './services/subscribe-push';
 import * as styles from './Wave.css';
+import SWMessageEventListener from './SWMessageEventListener';
 
 interface IWaveProps {
   sendMessage: (text: string) => ISendMessageAction;
+  addRecievedMessage: (
+    sender: string,
+    text: string
+  ) => MessageActions.IAddMessageAction;
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      sendMessage: MessageActions.sendMessage
+      sendMessage: MessageActions.sendMessage,
+      addRecievedMessage: MessageActions.addMessage
     },
     dispatch
   );
@@ -25,6 +31,28 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 const wave: React.StatelessComponent<
   IWaveProps & { className?: string }
 > = props => {
+  const pushNoticeHandler = (message: ServiceWorkerMessageEvent) => {
+    navigator.serviceWorker.ready.then(registration => {
+      // XXX: 本当はフォアグラウンドにいる時は通知を出したくない
+      // PushManager#subscribe()でuserVisibleOnly: trueにしか出来ないことに関連
+      // 表示されている時はWebSocket使うとかしてみるのもありかも
+      // if (document.hidden) {
+      //   registration.showNotification(message.data.title, {
+      //     icon: message.data.icon,
+      //     body: message.data.body
+      //   });
+      // }
+      registration.showNotification(message.data.title, {
+        icon: message.data.icon,
+        body: message.data.body
+      });
+    });
+    props.addRecievedMessage(
+      process.env.REACT_APP_PRECIOUS_NAME!,
+      message.data.body
+    );
+  };
+
   return (
     <div className={styles.wave}>
       {/* TODO: ポップアップとかでPush通知していいかどうか聞くようにする。とりあえずトリガーだけ置いておく */}
@@ -38,6 +66,7 @@ const wave: React.StatelessComponent<
       />
       <MessageLog />
       <MessageInput sendMessage={props.sendMessage} />
+      <SWMessageEventListener listeners={[pushNoticeHandler]} />
     </div>
   );
 };
