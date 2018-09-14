@@ -15,7 +15,10 @@ const messageMiddleware: Middleware = (api: MiddlewareAPI) => (
     fetch(`${process.env.REACT_APP_WAVE_SERVER_URL}/messages`, {
       method: 'POST',
       mode: 'cors',
-      body: JSON.stringify({ text: (action as ISendMessageAction).text }),
+      body: JSON.stringify({
+        text: (action as ISendMessageAction).text,
+        recipient: process.env.REACT_APP_PRECIOUS_NAME!
+      }),
       headers: new Headers({ 'Content-type': 'application/json' })
     })
       .then(res => res.json())
