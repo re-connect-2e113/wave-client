@@ -5,6 +5,7 @@ import YourMessage from './YourMessage';
 import { BOT_SAN, IMessage } from '../models/message';
 import { IState } from '../reducers/index';
 import * as styles from './MessageLog.css';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 interface IMessageLogProps {
   messages: IMessage[];
@@ -22,21 +23,38 @@ const messageLog: React.StatelessComponent<IMessageLogProps> = props => {
   const messageBalloons = props.messages.map(
     (message, index) =>
       message.sender === BOT_SAN ? (
-        <YourMessage
-          message={message.text}
+        <CSSTransition
           key={index}
-          className={yourMessageClasses}
-        />
+          timeout={200}
+          classNames={{
+            enter: styles.rrevealEnter,
+            enterActive: styles.rrevealEnterActive
+          }}
+        >
+          <YourMessage message={message.text} className={yourMessageClasses} />
+        </CSSTransition>
       ) : (
-        <HerMessage
-          message={message.text}
-          senderName={message.sender}
+        <CSSTransition
           key={index}
-          className={herMessageClasses}
-        />
+          timeout={200}
+          classNames={{
+            enter: styles.lrevealEnter,
+            enterActive: styles.lrevealEnterActive
+          }}
+        >
+          <HerMessage
+            message={message.text}
+            senderName={message.sender}
+            className={herMessageClasses}
+          />
+        </CSSTransition>
       )
   );
-  return <div className={styles.messageLogs}>{messageBalloons}</div>;
+  return (
+    <TransitionGroup className={styles.messageLogs} component="div">
+      {messageBalloons}
+    </TransitionGroup>
+  );
 };
 
 export default connect(mapStateToProps)(messageLog);
