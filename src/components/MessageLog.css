@@ -15,3 +15,27 @@
 .log__your-message {
   margin-right: 12px;
 }
+
+.lreveal-enter {
+  opacity: 0.01;
+  transform-origin: top left;
+  transform: scale(0.01, 0.01);
+}
+
+.lreveal-enter-active {
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: all 200ms ease-in-out;
+}
+
+.rreveal-enter {
+  opacity: 0.01;
+  transform-origin: top right;
+  transform: scale(0.01, 0.01);
+}
+
+.rreveal-enter-active {
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: all 200ms ease;
+}
