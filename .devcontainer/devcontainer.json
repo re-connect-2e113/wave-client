@@ -1,0 +1,9 @@
+{
+    "name": "wave_client-dev",
+    "image": "node:10.17.0",
+    "shutdownAction": "stopContainer",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "npm i"
+}
